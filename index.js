@@ -1,7 +1,8 @@
 const contenedor = document.getElementById("contenedor");
 let exploto=false;
 
-bomba(3);
+bomba(10);
+setTimeout(conectarBoton, 10000);
 
 
 
@@ -34,7 +35,31 @@ function resetearContenedor(elemento){
       }
 }
 
-const btn = document.getElementById("btn");
-/*btn.addEventListener("click",(e)=>{
+
+let btn;
+
+function conectarBoton() {
+    btn = document.getElementById("btn");
+    if (btn) {
+        btn.addEventListener("click", (e)=> {
+            resetearContenedor(contenedor);
+            bomba(10);
+            setTimeout(conectarBoton, 10000);
+        });
+    } else {
+        setTimeout(conectarBoton, 100); 
+    }
+}
+
+
+
+
+/*btn.addEventListener("click", function() {
+    console.log("Botón presionado");
+    // Aquí puedes realizar las acciones que deseas realizar cuando se presione el botón
+});
+
+/*const btn = document.getElementById("btn");
+btn.addEventListener("click",(e)=>{
     console.log("aprete");
 });*/
